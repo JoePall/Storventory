@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
-  const Inventory = sequelize.define("Inventory", {
-    Items: {
-      ItemsId: {
+  const inventory = sequelize.define("inventory", {
+    inventory: {
+      itemsId: {
         type: DataTypes.INTEGER,
         references: "item",
         referencesKey: "id"
@@ -9,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Inventory;
+  return inventory;
 };
