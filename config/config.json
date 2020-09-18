@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "SwimmingOtters357",
-    "database": "passport_demo",
+    "database": "storventory",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
