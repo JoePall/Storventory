@@ -1,13 +1,18 @@
 {
   "development": {
+<<<<<<< Updated upstream
     "username": "root",
     "password": "SwimmingOtters357",
+=======
+    "username": "cermqm",
+    "password": "cermqm",
+>>>>>>> Stashed changes
     "database": "storventory",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": "cermqm",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
