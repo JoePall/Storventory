@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const restaurant = sequelize.define("restaurant", {
+  const Restaurant = sequelize.define("restaurant", {
     name: {
       type: DataTypes.STRING,
       references: "name",
@@ -11,5 +11,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  return restaurant;
+
+  return Restaurant;
 };

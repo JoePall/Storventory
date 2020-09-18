@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const Item = sequelize.define("Item", {
+  const InventoryItem = sequelize.define("inventoryItem", {
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,5 +27,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return Item;
+  return InventoryItem;
 };
