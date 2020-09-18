@@ -15,13 +15,13 @@ module.exports = function(app) {
     res.render("login");
   });
 
-  app.get("/dashboard", isAuthenticated, (req, res) => {
+  app.get("/dashboard", (req, res) => {
     res.render("dashboard");
   });
-  app.get("/restaurant", isAuthenticated, (req, res) => {
+  app.get("/restaurant", (req, res) => {
     res.render("restaurant");
   });
-  app.get("/restock", isAuthenticated, (req, res) => {
+  app.get("/restock", (req, res) => {
     res.render("restock");
   });
 };
