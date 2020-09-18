@@ -10,9 +10,9 @@ router.post("/restaurant/create", (req, res) => {
   });
 });
 
-// route to update burger ad devoured
-router.post("/burger/eat/:id", (req, res) => {
-  burger.updateOne(req.params.id, () => {
+// route to update restaurant
+router.post("/restaurant/update", (req, res) => {
+  db.updateOne(req.params.id, () => {
     res.redirect("/index");
   });
 });
