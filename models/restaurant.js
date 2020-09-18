@@ -7,6 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     location: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    location: {
+      userid: DataTypes.INTEGER,
+      allowNull: false
     }
   });
 
