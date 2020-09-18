@@ -4,7 +4,7 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 const exphbs = require("express-handlebars");
-
+const routes = require("./controllers/restockController.js");
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
@@ -20,8 +20,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(routes);
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "template" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
