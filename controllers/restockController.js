@@ -1,24 +1,20 @@
-const router = require("express").Router();
+module.exports = function(app) {
+  const isAuthenticated = require("../config/middleware/isAuthenticated");
+  const db = require("../models");
 
-const isAuthenticated = require("../config/middleware/isAuthenticated");
-const db = require("../models");
-
-router.get("/restock", isAuthenticated, (req, res) => {
-  db.User.findAll().then(data => {
-    res.render("restock", { data: data });
+  app.get("/restock", isAuthenticated, (req, res) => {
+    db.User.findAll().then(data => {
+      res.render("restock", { data: data });
+    });
   });
-});
 
-router.post("/restock", isAuthenticated, (req, res) => {
-  db.InventoryItem.findAll().then(data => {
-    res.render("restock", { data: data });
+  // app.post("/api/inventoryItem", isAuthenticated, (req, res) => {
+  //   // db.InventoryItem
+  // });
+
+  app.put("/restock", isAuthenticated, (req, res) => {
+    db.InventoryItem.findAll().then(data => {
+      res.render("restock", { data: data });
+    });
   });
-});
-
-router.put("/restock", isAuthenticated, (req, res) => {
-  db.InventoryItem.findAll().then(data => {
-    res.render("restock", { data: data });
-  });
-});
-
-module.exports = router;
+};
