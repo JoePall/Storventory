@@ -1,7 +1,5 @@
-// Store, Location
-
 module.exports = function(sequelize, DataTypes) {
-  const store = sequelize.define("Inventory", {
+  const Store = sequelize.define("store", {
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -12,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  return store;
+  return Store;
 };
