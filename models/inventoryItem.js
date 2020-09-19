@@ -20,10 +20,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 10]
       }
-    },
-    expirationDate: {
-      type: DataTypes.DATE,
-      allowNull: false
     }
   });
 

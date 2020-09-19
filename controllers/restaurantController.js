@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
 
   // route for add restaurant
-  app.post("/create", isAuthenticated, (req, res) => {
+  app.post("/restaurant/create", isAuthenticated, (req, res) => {
     db.Restaurant.insertOne({
       name: req.body.name,
       location: req.body.location
@@ -21,10 +21,11 @@ module.exports = function(app) {
   });
 
   // route to update restaurant
-  app.post("/update", isAuthenticated, (req, res) => {
+  app.put("/restaurant/update", isAuthenticated, (req, res) => {
     db.Restaurant.updateOne({
       name: req.body.name,
-      location: req.body.location
+      location: req.body.location,
+      where: { id: req.body.id }
     }).then(data => {
       res.render("create", { data: data });
     });
