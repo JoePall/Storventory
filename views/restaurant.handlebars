@@ -1,4 +1,4 @@
-<!-- Restaurant Item Search Result -->
+
 
 <!-- CSS for Restaurants -->
 <style>
@@ -55,9 +55,6 @@ table.table td a {
     margin: 0 5px;
     min-width: 24px;
 }    
-table.table td a.add {
-    color: #27C46B;
-}
 table.table td a.edit {
     color: #FFC107;
 }
@@ -87,7 +84,7 @@ table.table td .add {
 }
 </style>
 
-<!-- Javascript for Resaurants -->
+<!-- Javascript for Restaurants -->
 <script>
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
@@ -151,9 +148,8 @@ $(document).ready(function(){
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Your <b>Restaurants</b></h2></div>
+                    <div class="col-sm-8"><h2><b>My Restaurants</b></h2></div>
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                     </div>
                 </div>
             </div>
@@ -166,17 +162,28 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
+                    {{#each restaurants}}
                     <tr>
-                        <td>Example Restaurant</td>
-                        <td>123 Location Dr</td>
+                        <td>{{name}}</td>
+                        <td>{{location}}</td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
-                    </tr>    
+                    </tr>  
+                    {{/each}}  
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{location}}</td>
+                        <td>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>  
                 </tbody>
             </table>
+            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+            <button type="button" class="add" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>
         </div>
     </div>
 </div>     
