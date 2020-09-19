@@ -12,21 +12,15 @@ module.exports = function(app) {
 
   // route for add restaurant
   app.post("/create", isAuthenticated, (req, res) => {
-    db.Restaurant.insertOne({
-      name: req.body.name,
-      location: req.body.location
-    }).then(data => {
+    db.Restaurant.insertOne(req.body.name, () => {
       res.render("create", { data: data });
     });
   });
 
   // route to update restaurant
   app.post("/update", isAuthenticated, (req, res) => {
-    db.Restaurant.updateOne({
-      name: req.body.name,
-      location: req.body.location
-    }).then(data => {
-      res.render("create", { data: data });
+    db.Restaurant.updateOne(req.params.id, () => {
+      res.render("update", { data: data });
     });
   });
 };
