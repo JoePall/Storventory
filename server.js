@@ -33,6 +33,7 @@ require("./controllers/inventorySetupController.js")(app);
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
+    seed();
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
@@ -40,3 +41,12 @@ db.sequelize.sync({ force: true }).then(() => {
     );
   });
 });
+
+function seed() {
+  db.User.create({ email: "johndoe@somewhere.com", password: "hello" });
+  db.Restaurant.create({
+    name: "Tacos everywhere",
+    location: "Kansas City",
+    userid: 1
+  });
+}
