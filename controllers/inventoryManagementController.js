@@ -12,10 +12,7 @@ module.exports = function(app) {
 
   // route for add restaurant
   app.post("/create", isAuthenticated, (req, res) => {
-    db.Restaurant.insertOne({
-      name: req.body.name,
-      location: req.body.location
-    }).then(data => {
+    db.Restaurant.insertOne(req.body.name, () => {
       res.render("create", { data: data });
     });
   });
