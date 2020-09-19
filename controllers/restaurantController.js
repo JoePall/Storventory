@@ -22,8 +22,11 @@ module.exports = function(app) {
 
   // route to update restaurant
   app.post("/update", isAuthenticated, (req, res) => {
-    db.Restaurant.updateOne(req.params.id, () => {
-      res.render("update", { data: data });
+    db.Restaurant.updateOne({
+      name: req.body.name,
+      location: req.body.location
+    }).then(data => {
+      res.render("create", { data: data });
     });
   });
 };
