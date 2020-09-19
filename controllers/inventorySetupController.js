@@ -1,22 +1,10 @@
-var router = require("express").Router();
+module.exports = function(app) {
+  const isAuthenticated = require("../config/middleware/isAuthenticated");
+  const db = require("../models");
 
-var db = require("../models");
-
-router.post("/inventory-setup", (req, res) => {
-  db.inventoryItem
-  res.render("index", {
-    burgersOrderedByName: burgersOrderedByName,
-    burgersOrderedByDevoured: burgersOrderedByDevoured
-});
-});
-
-router.put("/api/burgers/", (req, res) => {
-    let devoured = req.body.devoured++;
-    let object = {
-        id: req.body.id,
-        devoured: devoured
-    };
-    burger.update(object, (err, data) => res.json(data));
-});
-
-module.exports = router;
+  app.post("/inventory-setup", isAuthenticated, (req, res) => {
+    db.InventoryItem.findAll().then(data => {
+      res.render("index", data);
+    });
+  });
+};

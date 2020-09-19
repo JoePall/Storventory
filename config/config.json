@@ -1,13 +1,13 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "password", master
     "database": "storventory",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+    "username": "cermqm",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",

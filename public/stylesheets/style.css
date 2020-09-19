@@ -2,3 +2,22 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+
+.navbar-nav  li a:hover {
+  color: #659DBD !important;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
