@@ -8,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    location: {
-      userid: DataTypes.INTEGER,
+    userid: {
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   });
