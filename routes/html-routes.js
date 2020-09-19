@@ -28,7 +28,7 @@ module.exports = function(app) {
   app.get("/restaurant", (req, res) => {
     res.render("restaurant");
   });
-  app.get("/restock", (req, res) => {
-    res.render("restock");
+  app.get("/inventory", (req, res) => {
+    res.render("inventory");
   });
 };
