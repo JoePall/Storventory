@@ -4,11 +4,13 @@ const db = require("../models");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     if (req.user) {
-      db.Restaurant.findAll({ where: { id: req.user.userid } }).then(data => {
+      db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
+        console.log(data);
         res.render("dashboard", data);
       });
+    } else {
+      res.render("signup");
     }
-    res.render("signup");
   });
 
   app.get("/login", (req, res) => {
