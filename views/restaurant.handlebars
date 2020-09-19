@@ -1,23 +1,74 @@
 <!-- Restaurant Item Search Result -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <div class="card">
-                <div class="card-horizontal">
-                    <div class="img-square-wrapper">
-                        <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Mr. Restaurant</h4>
-                        <p class="card-text">Stats about the Resaurant..........</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Maybe something goes here....</small>
-                </div>
-            </div>
-        </div>
+<html>
+
+<head>
+  <title>User Manager</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <h1>User Manager</h1>
+  <div class="action-bar"><button class="btn btn-primary pull-left" type="button" data-toggle="modal" data-target="#myModal">Add user</button><input
+      class="form-control search-box pull-right" type="text" placeholder="Search" /><button class="btn btn-primary pull-right"
+      type="button">Search</button></div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">User information</h3><button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div
+          class="modal-body">
+          <form class="form-information">
+            <div class="form-group"><label for="ids">ID:</label><input class="form-control ids" required="required" type="text" placeholder="Enter ID"
+              /></div>
+            <div class="form-group"><label for="firstName">First name:</label><input class="form-control firstname" required="required" type="text"
+                placeholder="Enter first name" /></div>
+            <div class="form-group"><label for="lastname">Last name:</label><input class="form-control lastname" required="required" type="text"
+                placeholder="Enter last name" /></div>
+            <div class="form-group"><label for="phone">Phone:</label><input class="form-control phone" required="required" type="text" placeholder="Enter phone number"
+              /></div>
+            <div class="form-group"><label for="email">Email:</label><input class="form-control email" required="required" type="text" placeholder="Enter email"
+              /></div>
+            <div class="form-group"><label for="address">Address:</label><input class="form-control address" required="required" type="text" placeholder="Enter address"
+              /></div>
+            <div class="form-group"><label for="birthday">Birthday:</label><input class="form-control birthday" required="required" type="date" name="bday"
+              /></div>
+            <div class="form-group"><label for="gender">Gender:</label><input class="male" type="radio" name="gender" value="Male" checked="checked"
+              />Male <input class="female" type="radio" name="gender" value="Female" />Female</div><button class="btn btn-primary btn-save-change"
+              type="submit">Save changes</button></form>
+      </div>
     </div>
+  </div>
+  </div>
+  <table class="table table-striped" id="table-list">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Birthday</th>
+        <th>Gender</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+ <script type="text/javascript" src="/js/restaurantHandlebars.js"></script>
