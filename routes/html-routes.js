@@ -5,17 +5,17 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", data);
+        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
-      res.render("signup");	
+      res.render("signup");
     }
   });
 
   app.get("/login", (req, res) => {
     if (req.user) {
-      db.Restaurant.findAll({ where: { id: req.user.userid } }).then(data => {
-        res.render("restaurant", data);
+      db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
+        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
       res.render("login");
@@ -23,18 +23,24 @@ module.exports = function(app) {
   });
 
   app.get("/dashboard", (req, res) => {
-    res.render("dashboard");
+    db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
+      res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
+    });
   });
   app.get("/restaurant", (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", data);
+        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
-      res.render("signup");	
+      res.render("signup");
     }
   });
   app.get("/inventory", (req, res) => {
-    res.render("inventory");
+    db.Restaurant.findAll({ where: { inventoryid: req.inventory.id } }).then(
+      data => {
+        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
+      }
+    );
   });
 };
