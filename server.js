@@ -46,7 +46,7 @@ function seed() {
   db.User.create({ email: "johndoe@somewhere.com", password: "hello" });
   db.Restaurant.create({
     name: "Tacos everywhere",
-    location: "Kansas City",
+    location: "Overbrook, KS",
     userid: 1
   });
 }
