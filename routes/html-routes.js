@@ -5,10 +5,11 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
+        console.log("data = ", data);
         res.render("restaurant", data);
       });
     } else {
-      res.render("signup");	
+      res.render("signup");
     }
   });
 
@@ -31,7 +32,7 @@ module.exports = function(app) {
         res.render("restaurant", data);
       });
     } else {
-      res.render("signup");	
+      res.render("signup");
     }
   });
   app.get("/inventory", (req, res) => {
