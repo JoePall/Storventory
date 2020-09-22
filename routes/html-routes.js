@@ -9,7 +9,7 @@ module.exports = function(app) {
         res.render("restaurant", data);
       });
     } else {
-      res.render("signup");	
+      res.render("signup");
     }
   });
 
@@ -32,7 +32,7 @@ module.exports = function(app) {
         res.render("restaurant", data);
       });
     } else {
-      res.render("signup");	
+      res.render("signup");
     }
   });
   app.get("/inventory", (req, res) => {
