@@ -162,10 +162,10 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each restaurants}}
+                    {{#each data}}
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{location}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.location}}</td>
                         <td>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
@@ -173,8 +173,8 @@ $(document).ready(function(){
                     </tr>  
                     {{/each}}  
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{location}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.location}}</td>
                         <td>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
@@ -194,4 +194,4 @@ $(document).ready(function(){
 </html>
 
 
- <script type="text/javascript" src="/js/restaurantHandlebars.js"></script>
+ {{!-- <script type="text/javascript" src="/js/restaurantHandlebars.js"></script> --}}
