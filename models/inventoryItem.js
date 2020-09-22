@@ -1,5 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
   const InventoryItem = sequelize.define("InventoryItem", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 80]
+      }
+    },
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -15,10 +22,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     stockNumber: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 10]
+        len: [1, 15]
       }
     }
   });
