@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
+        res.render("restaurants", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
       res.render("signup");
