@@ -7,7 +7,7 @@ module.exports = function(app) {
   app.get("/restaurant", isAuthenticated, (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
+        res.render("restaurants", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
       res.render("login");
@@ -21,7 +21,7 @@ module.exports = function(app) {
         name: req.body.name,
         location: req.body.location
       }).then(data => {
-        res.render("create", { data: data });
+        window.location.replace("/");
       });
     } else {
       res.render("login");
@@ -36,7 +36,7 @@ module.exports = function(app) {
         location: req.body.location,
         where: { id: req.body.id }
       }).then(data => {
-        res.render("create", { data: data });
+        res.render("restaurants", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
       res.render("login");
