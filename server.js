@@ -118,54 +118,63 @@ function seed() {
     name: "Simple Truth Organic™ Free Range Chicken Breast Tenders",
     quantity: 13,
     stockAmount: 20,
-    stockNumber: "0021066450000"
+    stockNumber: "0021066450000",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Coca-Cola Soda 6 Bottles",
     quantity: 22,
     stockAmount: 50,
-    stockNumber: "0004900002468"
+    stockNumber: "0004900002468",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Pepsi Cola Soda 6 Pack Bottles",
     quantity: 37,
     stockAmount: 50,
-    stockNumber: "0001200050405"
+    stockNumber: "0001200050405",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Beef Choice Boneless Top Loin Strip Steak (1 Steak)",
     quantity: 55,
     stockAmount: 100,
-    stockNumber: "0020223600000"
+    stockNumber: "0020223600000",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Budweiser Lager",
     quantity: 30,
     stockAmount: 50,
-    stockNumber: "0001820011047"
+    stockNumber: "0001820011047",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Coors Light American Light Lager Beer",
     quantity: 28,
     stockAmount: 50,
-    stockNumber: "0007199000048"
+    stockNumber: "0007199000048",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Tyson Fully Cooked Crispy Chicken Strips",
     quantity: 18,
     stockAmount: 30,
-    stockNumber: "0002370001410"
+    stockNumber: "0002370001410",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Wonder Classic Enriched Hamburger Buns 8 Count",
     quantity: 20,
     stockAmount: 40,
-    stockNumber: "0007225002109"
+    stockNumber: "0007225002109",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "  Frito-Lay Family Fun Snacks & Chips Mix Variety Pack 18 Count",
     quantity: 15,
     stockAmount: 25,
-    stockNumber: "0002840015463"
+    stockNumber: "0002840015463",
+    restaurantid: 1
   });
 }
