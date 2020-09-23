@@ -112,7 +112,8 @@ function seed() {
     name: "Laura's 96% Lean Ground Beef",
     quantity: 10,
     stockAmount: 15,
-    stockNumber: "0061266931706"
+    stockNumber: "0061266931706",
+    restaurantid: 1
   });
   db.InventoryItem.create({
     name: "Simple Truth Organic™ Free Range Chicken Breast Tenders",
