@@ -17,7 +17,7 @@ module.exports = function(app) {
   // route for add restaurant
   app.post("/restaurant/create", isAuthenticated, (req, res) => {
     if (req.user) {
-      db.Restaurant.insertOne({
+      db.Restaurant.create({
         name: req.body.name,
         location: req.body.location
       }).then(window.location.replace("/"));
