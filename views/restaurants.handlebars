@@ -162,19 +162,21 @@ $(document).ready(function(){
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each restaurants}}
+                    {{#each data}}
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{location}}</td>
+                        <tr data-id="((this.id}}"></tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.location}}</td>
                         <td>
+                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>  
                     {{/each}}  
                     <tr>
-                        <td>{{name}}</td>
-                        <td>{{location}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.location}}</td>
                         <td>
                             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
@@ -182,8 +184,6 @@ $(document).ready(function(){
                     </tr>  
                 </tbody>
             </table>
-            <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-            <button type="button" class="add" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></button>
         </div>
     </div>
 </div>     
@@ -192,6 +192,3 @@ $(document).ready(function(){
 </body>
 
 </html>
-
-
- {{!-- <script type="text/javascript" src="/js/restaurantHandlebars.js"></script> --}}
