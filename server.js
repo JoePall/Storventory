@@ -56,57 +56,57 @@ function seed() {
   db.Restaurant.create({
     name: "Doves Nest",
     location: "Effingham, Kansas",
-    userid: 2
+    userid: 1
   });
   db.Restaurant.create({
     name: "Doves Nest",
     location: "Lake Perry, Kansas",
-    userid: 2
+    userid: 1
   });
   db.Restaurant.create({
     name: "Brass Rail",
     location: "Kansas City, Missouri",
-    userid: 2
+    userid: 1
   });
   db.Restaurant.create({
     name: "El Maguey Mexican Restaurant",
     location: "Kansas City, Missouri",
-    userid: 3
+    userid: 1
   });
   db.Restaurant.create({
     name: "Jason's Deli",
     location: "Kansas City, Missouri",
-    userid: 3
+    userid: 1
   });
   db.Restaurant.create({
     name: "Stroud's",
     location: "Kansas City, Missouri",
-    userid: 4
+    userid: 1
   });
   db.Restaurant.create({
     name: "Yard House",
     location: "Kansas City, Missouri",
-    userid: 4
+    userid: 1
   });
   db.Restaurant.create({
     name: "Corner Cafe",
     location: "Liberty, Missouri",
-    userid: 4
+    userid: 1
   });
   db.Restaurant.create({
     name: "Corner Cafe",
     location: "RiverSide, Missouri",
-    userid: 5
+    userid: 1
   });
   db.Restaurant.create({
     name: "Stone Canyon Pizza",
     location: "Gladstone, Missouri",
-    userid: 5
+    userid: 1
   });
   db.Restaurant.create({
     name: "Winstead's Steakburgers",
     location: "Kansas City, Missouri",
-    userid: 5
+    userid: 1
   });
   db.InventoryItem.create({
     name: "Laura's 96% Lean Ground Beef",
