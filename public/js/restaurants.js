@@ -13,7 +13,7 @@ $(document).ready(() => {
     }
     console.log(name);
     console.log(location);
-    $.post("/restaurant/create", {
+    $.post("/api/restaurant", {
       name: name.val().trim(),
       location: location.val().trim()
     }).catch(err => {
