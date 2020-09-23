@@ -19,8 +19,15 @@ module.exports = function(app) {
     if (req.user) {
       db.Restaurant.create({
         name: req.body.name,
-        location: req.body.location
-      }).then(window.location.replace("/"));
+        location: req.body.location,
+        userid: req.user.id
+      })
+        .then(() => {
+          res.status(200);
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
     } else {
       res.render("login");
     }
@@ -33,7 +40,13 @@ module.exports = function(app) {
         name: req.body.name,
         location: req.body.location,
         where: { id: req.body.id }
-      }).then(window.location.replace("/"));
+      })
+        .then(() => {
+          res.status(200);
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
     } else {
       res.render("login");
     }
