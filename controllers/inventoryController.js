@@ -1,17 +1,14 @@
-// include express and all models
 module.exports = function(app) {
   const isAuthenticated = require("../config/middleware/isAuthenticated");
   const db = require("../models");
 
-  // route to see all items in inventory
-  app.get("/inventoryItem/item", isAuthenticated, (req, res) => {
+  app.get("/inventory", isAuthenticated, (req, res) => {
     db.inventoryItem.findAll().then(data => {
       res.render("item", { data: data });
     });
   });
 
-  // route for add inventory item
-  app.post("/inventoryItem/create", isAuthenticated, (req, res) => {
+  app.post("/api/inventory", isAuthenticated, (req, res) => {
     db.Restaurant.insertOne({
       quantity: req.body.quantity,
       stockAmount: req.body.stockAmount,
@@ -21,15 +18,19 @@ module.exports = function(app) {
     });
   });
 
-  // route to update inventory item
-  app.put("/inventoryItem/update", isAuthenticated, (req, res) => {
+  app.put("/api/inventory", isAuthenticated, (req, res) => {
     db.Restaurant.updateOne({
+      name: req.body.name,
       quantity: req.body.quantity,
       stockAmount: req.body.stockAmount,
       stockNumber: req.body.stockNumber,
       where: { id: req.body.id }
-    }).then(data => {
-      res.render("create", { data: data });
+    }).then(() => {
+      db.inventoryItem
+        .findAll({ where: { restaurantid: req.body.id } })
+        .then(data => {
+          res.render("/inventory", { items: data.map(x => x.dataValues) });
+        });
     });
   });
 
