@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 15]
       }
+    },
+    restaurantid: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
 
