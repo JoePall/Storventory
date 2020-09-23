@@ -16,9 +16,14 @@ $(document).ready(() => {
     $.post("/api/restaurant", {
       name: name.val().trim(),
       location: location.val().trim()
-    }).catch(err => {
-      console.log(err);
-    });
+    })
+      .then(() => {
+        console.log(".then");
+        window.location.reload();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
   // Add row on add button click
   $(document).on("click", ".add", function() {

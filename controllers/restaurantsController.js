@@ -24,6 +24,7 @@ module.exports = function(app) {
       })
         .then(() => {
           res.status(200);
+          res.send({ message: "restaurant created" });
         })
         .catch(err => {
           res.status(401).json(err);
