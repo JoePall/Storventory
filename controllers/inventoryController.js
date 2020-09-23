@@ -32,4 +32,10 @@ module.exports = function(app) {
       res.render("create", { data: data });
     });
   });
+
+  app.post("/inventory-setup", isAuthenticated, (req, res) => {
+    db.InventoryItem.findAll().then(data => {
+      res.render("index", data);
+    });
+  });
 };
