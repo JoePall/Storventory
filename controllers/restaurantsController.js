@@ -15,7 +15,7 @@ module.exports = function(app) {
   });
 
   // route for add restaurant
-  app.post("/restaurant/create", isAuthenticated, (req, res) => {
+  app.post("/api/restaurant/create", isAuthenticated, (req, res) => {
     if (req.user) {
       db.Restaurant.create({
         name: req.body.name,
@@ -27,7 +27,7 @@ module.exports = function(app) {
   });
 
   // route to update restaurant
-  app.put("/restaurant/update", isAuthenticated, (req, res) => {
+  app.put("/api/restaurant/update", isAuthenticated, (req, res) => {
     if (req.user) {
       db.Restaurant.update({
         name: req.body.name,
