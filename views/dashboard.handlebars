@@ -4,9 +4,12 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Product Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
+
+  <!-- shopping cart -->
   <div class="navbar" style="vertical-align: middle;">
     <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="cart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"></i>Cart <span class="badge">3</span></a>
+      <a class="nav-link dropdown-toggle" href="#" id="cart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"></i>Cart <span class="badge">0</span></a>
+      {{!-- <!-- dropdown cart -->
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <div class="container">
           <div class="shopping-cart">
@@ -42,7 +45,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </nav>
@@ -58,11 +61,19 @@
     </tr>
   </thead>
   <tbody>
+    {{#each items}}
     <tr>
-      <th scope="row" class="item"></th>
-      <td class="description"></td>
-      <td class="current-quantity"></td>
-      <td class ="desired-stock-amount"></td>
+      <tr data-id="{{this.id}}"></tr>
+      <td>{{this.name}}</td>
+      <td>{{this.description}}</td>
+      <td>{{this.quantity}}</td> 
+      <td>{{this.stockAmount}}</td>
+      <td>
+            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<script type="text/javascript" src="/js/inventory.js"></script>
