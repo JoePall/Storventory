@@ -1,7 +1,17 @@
-const db = require("../models");
-const passport = require("../config/passport");
-
 module.exports = function(app) {
+  const passport = require("../config/passport");
+  const db = require("../models");
+
+  app.get("/login", (req, res) => {
+    if (req.user) {
+      db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
+        res.render("restaurants", { restaurants: data.map(x => x.dataValues) });
+      });
+    } else {
+      res.render("login");
+    }
+  });
+
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
       email: req.user.email,

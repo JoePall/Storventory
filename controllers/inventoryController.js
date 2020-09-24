@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
 
   app.post("/api/inventory", isAuthenticated, (req, res) => {
-    db.Restaurant.insertOne({
+    db.Restaurant.create({
       name: req.body.name,
       quantity: req.body.quantity,
       stockAmount: req.body.stockAmount,

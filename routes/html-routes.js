@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get("/login", (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
+        res.render("restaurants", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
       res.render("login");
@@ -25,26 +25,10 @@ module.exports = function(app) {
   app.get("/dashboard", (req, res) => {
     if (req.user) {
       db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
+        res.render("restaurants", { restaurants: data.map(x => x.dataValues) });
       });
     } else {
       res.render("signup");
     }
-  });
-  app.get("/restaurant", (req, res) => {
-    if (req.user) {
-      db.Restaurant.findAll({ where: { userid: req.user.id } }).then(data => {
-        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
-      });
-    } else {
-      res.render("signup");
-    }
-  });
-  app.get("/inventory", (req, res) => {
-    db.Restaurant.findAll({ where: { inventoryid: req.inventory.id } }).then(
-      data => {
-        res.render("restaurant", { restaurants: data.map(x => x.dataValues) });
-      }
-    );
   });
 };
