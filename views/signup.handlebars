@@ -1,10 +1,9 @@
-
-  <div class="wrapper">
-    <div class="form-signin">
-      <h2 class="form-signin-heading text-center">Sign Up</h2>
-        <form class="signup">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mx-auto col-md-12 p-5">
+        <div class="card p-4">
           <div class="form-group">
-            <label for="exampleInputEmail1"></label>
+            <label for="email-input">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
@@ -12,13 +11,19 @@
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
-          <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <button id="signup-button" type="button" class="btn btn-primary w-100 btn-default">Sign Up</button>
+              </div>
+              <div class="col-6">
+                <button id="login-button" type="button" class="btn btn-success w-100 btn-default">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-
-  <script type="text/javascript" src="/js/signup.js"></script>
+  <script type="text/javascript" src="/js/login.js"></script>
