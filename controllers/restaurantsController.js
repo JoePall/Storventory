@@ -52,4 +52,21 @@ module.exports = function(app) {
       res.render("login");
     }
   });
+
+  // route to delete restaurant
+  app.delete("/api/restaurant", isAuthenticated, (req, res) => {
+    if (req.user) {
+      db.Restaurant.destroy({
+        where: { id: req.body.id }
+      })
+        .then(() => {
+          res.status(200);
+        })
+        .catch(err => {
+          res.status(401).json(err);
+        });
+    } else {
+      res.render("login");
+    }
+  });
 };
