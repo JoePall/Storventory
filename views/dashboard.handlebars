@@ -75,12 +75,14 @@
   <tbody>
     {{#each items}}
     <tr>
+
       <tr data-id="{{this.id}}"></tr>
       <td>{{this.name}}</td>
       <td>{{this.quantity}}</td> 
       <td>{{this.stockAmount}}</td>
       <td>{{this.stockNumber}}</td>
       <td class="d-none">{{this.restaurantid}}</td>
+
       <td>
             <a class="edit edit{{this.id}}" data-id="{{this.id}}" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
             <a class="edit-submit edit-submit{{this.id}}" data-id="{{this.id}}" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xe5ca;</i></a>

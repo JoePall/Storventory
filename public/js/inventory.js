@@ -43,7 +43,6 @@ $(document).ready(() => {
       .each(function() {
         $(this).html(
           // eslint-disable-next-line prettier/prettier
-          "<input type=\"text\" class=\"form-control\" value=\"" +
           "<input type=\"text\" class=\"form-control update "+ $(this).attr("class") +" \"  value=\"" +
             $(this).text() +
             // eslint-disable-next-line prettier/prettier
