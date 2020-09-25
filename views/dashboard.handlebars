@@ -1,14 +1,14 @@
 <!-- Item search bar -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light disabled">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Product Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <input class="form-control mr-sm-2" id="disabledInput" type="text" placeholder="Product Search" aria-label="Search" disabled>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" disabled>Search</button>
   </form>
 
   <!-- shopping cart -->
   <div class="navbar" style="vertical-align: middle;">
     <div class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="cart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"></i>Cart <span class="badge">0</span></a>
+      <a class="nav-link dropdown-toggle disabled" href="#" id="cart" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-cart"></i>Cart <span class="badge">0</span></a>
       {{!-- <!-- dropdown cart -->
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <div class="container">

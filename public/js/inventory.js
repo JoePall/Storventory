@@ -49,7 +49,7 @@ $(document).ready(() => {
     $(".add-new").attr("disabled", "disabled");
   });
 
-  // Delete row on delete button click.
+  // Delete row on delete button click
   $(document).on("click", ".delete", handleDeleteItem);
 
   function deleteItem(id) {
@@ -65,4 +65,29 @@ $(document).ready(() => {
   function handleDeleteItem() {
     deleteItem($(this).attr("data-id"));
   }
+  $(".search").click(event => {
+    event.preventDefault();
+    const search = $("#searchinput");
+    console.log(".search");
+    if (!search) {
+      return;
+    }
+    //&filter.locationId={{LOCATION_ID}}
+    const settings = {
+      async: true,
+      crossDomain: true,
+      url:
+        "https://cors-anywhere.herokuapp.com/https://api.kroger.com/v1/products?filter.term=" +
+        search.val().trim(),
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        Authorization:
+          "Bearer:storventory-8e29a856ecb3dd5b7bf7496f65dedfc63168613925626176871"
+      }
+    };
+    $.ajax(settings).done(response => {
+      console.log(response);
+    });
+  });
 });
