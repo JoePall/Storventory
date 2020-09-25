@@ -38,15 +38,18 @@ module.exports = function(app) {
   });
 
   app.put("/api/inventory", isAuthenticated, (req, res) => {
-    db.InventoryItem.updateOne({
-      name: req.body.name,
-      quantity: req.body.quantity,
-      stockAmount: req.body.stockAmount,
-      restaurantid: req.body.restaurantid,
-      stockNumber: req.body.stockNumber,
-      id: req.body.id,
-      where: { id: req.body.id }
-    }).then(() => {
+    console.log(req.body);
+    db.InventoryItem.update(
+      {
+        name: req.body.name,
+        quantity: req.body.quantity,
+        stockAmount: req.body.stockAmount,
+        restaurantid: req.body.restaurantid,
+        stockNumber: req.body.stockNumber,
+        id: req.body.id
+      },
+      { where: { id: req.body.id } }
+    ).then(() => {
       db.InventoryItem.findAll({ where: { restaurantid: req.body.id } }).then(
         data => {
           res.render("/dashboard", { items: data.map(x => x.dataValues) });
