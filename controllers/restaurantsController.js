@@ -44,6 +44,7 @@ module.exports = function(app) {
       })
         .then(() => {
           res.status(200);
+          res.send({ message: "restaurant deleted" });
         })
         .catch(err => {
           res.status(401).json(err);
@@ -54,13 +55,14 @@ module.exports = function(app) {
   });
 
   // route to delete restaurant
-  app.delete("/api/restaurant", isAuthenticated, (req, res) => {
+  app.delete("/api/restaurant/:id", isAuthenticated, (req, res) => {
     if (req.user) {
       db.Restaurant.destroy({
-        where: { id: req.body.id }
+        where: { id: req.params.id }
       })
         .then(() => {
           res.status(200);
+          res.send({ message: "restaurant deleted" });
         })
         .catch(err => {
           res.status(401).json(err);
