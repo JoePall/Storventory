@@ -81,24 +81,7 @@ $(document).ready(() => {
       window.location.reload();
     });
   });
-  $(this)
-    .parents("tr")
-    .find("td:not(:last-child)")
-    .each(function() {
-      $(this).html(
-        // eslint-disable-next-line prettier/prettier
-        "<input type=\"text\" class=\"form-control\" value=\"" +
-          $(this).text() +
-        // eslint-disable-next-line prettier/prettier
-            "\">"
-      );
-    });
-  $(this)
-    .parents("tr")
-    .find(".add, .edit")
-    .toggle();
-  $(".add-new").attr("disabled", "disabled");
-});
+  
 
 // Delete row on delete button click
 $(document).on("click", ".delete", handleDeleteRestaurant);
