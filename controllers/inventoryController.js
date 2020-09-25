@@ -3,7 +3,7 @@ module.exports = function(app) {
   const db = require("../models");
 
   app.get("/inventory/:id", isAuthenticated, (req, res) => {
-    db.inventoryItem
+    db.InventoryItem
       .findAll({ where: { restaurantid: req.params.id } })
       .then(data => {
         res.render("/dashboard", { items: data.map(x => x.dataValues) });
@@ -11,7 +11,7 @@ module.exports = function(app) {
   });
 
   app.get("/dashboard/:id", isAuthenticated, (req, res) => {
-    db.inventoryItem
+    db.InventoryItem
       .findAll({ where: { restaurantid: req.params.id } })
       .then(data => {
         res.render("/dashboard", { items: data.map(x => x.dataValues) });
