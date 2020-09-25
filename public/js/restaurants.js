@@ -78,11 +78,21 @@ $(document).ready(() => {
       .toggle();
     $(".add-new").attr("disabled", "disabled");
   });
+
   // Delete row on delete button click
-  $(document).on("click", ".delete", function() {
-    $(this)
-      .parents("tr")
-      .remove();
-    $(".add-new").removeAttr("disabled");
-  });
+  $(document).on("click", ".delete", handleDeleteRestaurant);
+
+  function deleteRestaurant(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/restaurant/" + id
+    }).then(() => {
+      console.log(".then");
+      window.location.reload();
+    });
+  }
+
+  function handleDeleteRestaurant() {
+    deleteRestaurant($(this).attr("data-id"));
+  }
 });
