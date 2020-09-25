@@ -81,21 +81,21 @@ $(document).ready(() => {
       window.location.reload();
     });
   });
-  
 
-// Delete row on delete button click
-$(document).on("click", ".delete", handleDeleteRestaurant);
+  // Delete row on delete button click
+  $(document).on("click", ".delete", handleDeleteRestaurant);
 
-function deleteRestaurant(id) {
-  $.ajax({
-    method: "DELETE",
-    url: "/api/restaurant/" + id
-  }).then(() => {
-    console.log(".then");
-    window.location.reload();
-  });
-}
+  function deleteRestaurant(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/restaurant/" + id
+    }).then(() => {
+      console.log(".then");
+      window.location.reload();
+    });
+  }
 
-function handleDeleteRestaurant() {
-  deleteRestaurant($(this).attr("data-id"));
-}
+  function handleDeleteRestaurant() {
+    deleteRestaurant($(this).attr("data-id"));
+  }
+});
