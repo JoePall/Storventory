@@ -24,8 +24,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "template" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+require("./controllers/loginController.js")(app);
 require("./controllers/restaurantsController.js")(app);
 require("./controllers/inventoryController.js")(app);
 

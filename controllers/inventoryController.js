@@ -10,6 +10,14 @@ module.exports = function(app) {
       });
   });
 
+  app.get("/dashboard", isAuthenticated, (req, res) => {
+    db.inventoryItem
+      .findAll({ where: { restaurantid: req.body.id } })
+      .then(data => {
+        res.render("/dashboard", { items: data.map(x => x.dataValues) });
+      });
+  });
+
   app.post("/api/inventory", isAuthenticated, (req, res) => {
     db.Restaurant.create({
       name: req.body.name,
