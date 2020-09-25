@@ -59,24 +59,27 @@ $(document).ready(() => {
     }
   });
   // Edit row on edit button click
-  $(document).on("click", ".edit", function() {
-    $(this)
-      .parents("tr")
-      .find("td:not(:last-child)")
-      .each(function() {
-        $(this).html(
-          // eslint-disable-next-line prettier/prettier
-          "<input type=\"text\" class=\"form-control\" value=\"" +
-            $(this).text() +
-            // eslint-disable-next-line prettier/prettier
-            "\">"
-        );
-      });
-    $(this)
-      .parents("tr")
-      .find(".add, .edit")
-      .toggle();
-    $(".add-new").attr("disabled", "disabled");
+  $(".submit-edit").click(event => {
+    event.preventDefault();
+    console.log("edit");
+    const name = $("#name");
+    const location = $("#location");
+    if (!name || !location) {
+      return;
+    }
+    console.log(name);
+    console.log(location);
+    $.ajax({
+      method: "PUT",
+      url: "/api/restaurant/",
+      body: {
+        name: name.val().trim(),
+        location: location.val().trim()
+      }
+    }).then(() => {
+      console.log(".then");
+      window.location.reload();
+    });
   });
 
   // Delete row on delete button click

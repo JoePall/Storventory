@@ -59,7 +59,7 @@ body {
     border-radius: 50px;
     line-height: 13px;
 }
-.table-title .add-new i {
+.table-title .dashboard i {
     margin-right: 4px;
 }
 table.table {
@@ -67,7 +67,7 @@ table.table {
 }
 table.table tr th, table.table tr td {
     border-color: #e9e9e9;
-    width: 190px;
+    width: 170px;
 }
 table.table th i {
     font-size: 13px;
@@ -75,7 +75,7 @@ table.table th i {
     cursor: pointer;
 }
 table.table th:last-child {
-    width: 100px;
+    width: 60px;
 }
 table.table td a {
     cursor: pointer;
@@ -87,7 +87,7 @@ table.table td a {
 table.table td a.submit {
   color: #198edb;
 }
-table.table td a.add-new {
+table.table td a.dashboard {
     color: #45b121;
 }
 table.table td a.edit {
