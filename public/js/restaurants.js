@@ -59,40 +59,60 @@ $(document).ready(() => {
     }
   });
   // Edit row on edit button click
-  $(document).on("click", ".edit", function() {
-    $(this)
-      .parents("tr")
-      .find("td:not(:last-child)")
-      .each(function() {
-        $(this).html(
-          // eslint-disable-next-line prettier/prettier
-          "<input type=\"text\" class=\"form-control\" value=\"" +
-            $(this).text() +
-            // eslint-disable-next-line prettier/prettier
-            "\">"
-        );
-      });
-    $(this)
-      .parents("tr")
-      .find(".add, .edit")
-      .toggle();
-    $(".add-new").attr("disabled", "disabled");
-  });
-
-  // Delete row on delete button click
-  $(document).on("click", ".delete", handleDeleteRestaurant);
-
-  function deleteRestaurant(id) {
+  $(".submit-edit").click(event => {
+    event.preventDefault();
+    console.log("edit");
+    const name = $("#name");
+    const location = $("#location");
+    if (!name || !location) {
+      return;
+    }
+    console.log(name);
+    console.log(location);
     $.ajax({
-      method: "DELETE",
-      url: "/api/restaurant/" + id
+      method: "PUT",
+      url: "/api/restaurant/",
+      body: {
+        name: name.val().trim(),
+        location: location.val().trim()
+      }
     }).then(() => {
       console.log(".then");
       window.location.reload();
     });
-  }
-
-  function handleDeleteRestaurant() {
-    deleteRestaurant($(this).attr("data-id"));
-  }
+  });
+  $(this)
+    .parents("tr")
+    .find("td:not(:last-child)")
+    .each(function() {
+      $(this).html(
+        // eslint-disable-next-line prettier/prettier
+        "<input type=\"text\" class=\"form-control\" value=\"" +
+          $(this).text() +
+        // eslint-disable-next-line prettier/prettier
+            "\">"
+      );
+    });
+  $(this)
+    .parents("tr")
+    .find(".add, .edit")
+    .toggle();
+  $(".add-new").attr("disabled", "disabled");
 });
+
+// Delete row on delete button click
+$(document).on("click", ".delete", handleDeleteRestaurant);
+
+function deleteRestaurant(id) {
+  $.ajax({
+    method: "DELETE",
+    url: "/api/restaurant/" + id
+  }).then(() => {
+    console.log(".then");
+    window.location.reload();
+  });
+}
+
+function handleDeleteRestaurant() {
+  deleteRestaurant($(this).attr("data-id"));
+}
