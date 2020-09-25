@@ -4,22 +4,24 @@ $(document).ready(() => {
   // Append table with add inventory row on add new button click
   $(".submit").click(event => {
     event.preventDefault();
-    const name = $("#name");
-    // const description = $("#description");
-    const quantity = $("#quantity");
-    const stockAmount = $("#stockAmount");
-    const stockNumber = $("#stockNumber");
-    const restautantid = $("#restautantid");
+    const name = $("#new-name");
+    const quantity = $("#new-quantity");
+    const stockAmount = $("#new-stock-amount");
+    const stockNumber = $("#new-stock-number");
+    const restaurantid = $("#new-restaurant-id");
+
     if (!name || !quantity || !stockAmount || !stockNumber) {
       return;
     }
+
+    console.log("Hello");
+
     $.post("/api/inventory", {
       name: name.val().trim(),
-      // description: description.val().trim(),
       quantity: quantity.val().trim(),
       stockAmount: stockAmount.val().trim(),
       stockNumber: stockNumber.val().trim(),
-      restaurantid: restautantid.val().trim()
+      restaurantid: restaurantid.val().trim()
     })
       .then(() => {
         window.location.reload();
@@ -48,21 +50,11 @@ $(document).ready(() => {
       .toggle();
     $(".add-new").attr("disabled", "disabled");
   });
-
-  // Delete row on delete button click.
-  $(document).on("click", ".delete", handleDeleteItem);
-
-  function deleteItem(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/inventory/" + id
-    }).then(() => {
-      console.log(".then");
-      window.location.reload();
-    });
-  }
-
-  function handleDeleteItem() {
-    deleteItem($(this).attr("data-id"));
-  }
+  // Delete row on delete button click
+  $(document).on("click", ".delete", function() {
+    $(this)
+      .parents("tr")
+      .remove();
+    $(".add-new").removeAttr("disabled");
+  });
 });
