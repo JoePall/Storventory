@@ -44,7 +44,7 @@ module.exports = function(app) {
       })
         .then(() => {
           res.status(200);
-          res.send({ message: "restaurant deleted" });
+          res.send({ message: "restaurant updated" });
         })
         .catch(err => {
           res.status(401).json(err);
