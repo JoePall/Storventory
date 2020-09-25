@@ -13,7 +13,10 @@ module.exports = function(app) {
   app.get("/dashboard/:id", isAuthenticated, (req, res) => {
     db.InventoryItem.findAll({ where: { restaurantid: req.params.id } }).then(
       data => {
-        res.render("dashboard", { items: data.map(x => x.dataValues) });
+        res.render("dashboard", {
+          restaurantid: req.params.id,
+          items: data.map(x => x.dataValues)
+        });
       }
     );
   });

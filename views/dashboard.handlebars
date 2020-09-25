@@ -65,11 +65,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      {{!-- <th scope="col">Description</th> --}}
       <th>Current Quantity</th>
       <th>Desired Stock Amount</th>
       <th>Stock Number</th>
-      <th>Restautant ID</th>
+      <th class="d-none">Restaurant ID</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -92,12 +91,11 @@
     {{/each}}
     
     <tr>
-      <td><input type="text" class="form-control" name="name" id="name"></td>
-      {{!-- <td><input type="text" class="form-control" name="description" id="description"></td> --}}
-      <td><input type="text" class="form-control" name="quantity" id="quantity"></td>
-      <td><input type="text" class="form-control" name="stockAmount" id="stockAmount"></td>
-      <td><input type="text" class="form-control" name="stockNumber" id="stockNumber"></td>
-      <td><input type="text" class="form-control" name="restaurantid" id="restautantid"></td>
+      <td><input type="text" class="form-control" name="name" id="new-name"></td>
+      <td><input type="text" class="form-control" name="quantity" id="new-quantity"></td>
+      <td><input type="text" class="form-control" name="stockAmount" id="new-stock-amount"></td>
+      <td><input type="text" class="form-control" name="stockNumber" id="new-stock-number"></td>
+      <td><input type="text" class="form-control d-none" name="restaurant-id" id="new-restaurant-id" value="{{restaurantid}}"></td>
     <td>
       <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xe5ca;</i></a>
     </td>
