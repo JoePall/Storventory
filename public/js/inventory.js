@@ -49,7 +49,7 @@ $(document).ready(() => {
     $(".add-new").attr("disabled", "disabled");
   });
 
-  // Delete row on delete button click
+  // Delete row on delete button click.
   $(document).on("click", ".delete", handleDeleteItem);
 
   function deleteItem(id) {
