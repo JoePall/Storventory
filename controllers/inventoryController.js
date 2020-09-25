@@ -2,28 +2,28 @@ module.exports = function(app) {
   const isAuthenticated = require("../config/middleware/isAuthenticated");
   const db = require("../models");
 
-  app.get("/inventory", isAuthenticated, (req, res) => {
+  app.get("/inventory/:id", isAuthenticated, (req, res) => {
     db.inventoryItem
-      .findAll({ where: { restaurantid: req.body.id } })
+      .findAll({ where: { restaurantid: req.params.id } })
       .then(data => {
         res.render("/dashboard", { items: data.map(x => x.dataValues) });
       });
   });
 
-  app.get("/dashboard", isAuthenticated, (req, res) => {
+  app.get("/dashboard/:id", isAuthenticated, (req, res) => {
     db.inventoryItem
-      .findAll({ where: { restaurantid: req.body.id } })
+      .findAll({ where: { restaurantid: req.params.id } })
       .then(data => {
         res.render("/dashboard", { items: data.map(x => x.dataValues) });
       });
   });
 
-  app.post("/api/inventory", isAuthenticated, (req, res) => {
+  app.post("/api/inventory/:id", isAuthenticated, (req, res) => {
     db.Restaurant.create({
       name: req.body.name,
       quantity: req.body.quantity,
       stockAmount: req.body.stockAmount,
-      restaurantid: req.body.restaurantid,
+      restaurantid: req.params,
       stockNumber: req.body.stockNumber
     }).then(() => {
       db.inventoryItem
@@ -34,14 +34,14 @@ module.exports = function(app) {
     });
   });
 
-  app.put("/api/inventory", isAuthenticated, (req, res) => {
-    db.Restaurant.updateOne({
+  app.put("/api/inventory/:id", isAuthenticated, (req, res) => {
+    db.InventoryItem.updateOne({
       quantity: req.body.quantity,
       stockAmount: req.body.stockAmount,
-      where: { id: req.body.id }
+      where: { id: req.params.id }
     }).then(() => {
       db.inventoryItem
-        .findAll({ where: { restaurantid: req.body.id } })
+        .findAll({ where: { restaurantid: req.params.id } })
         .then(data => {
           res.render("/dashboard", { items: data.map(x => x.dataValues) });
         });
