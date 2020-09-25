@@ -51,13 +51,26 @@
 </nav>
 
 <!-- Show item, description, quantity, and desired stock amount --> 
-<table class="table">
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper" style="width:auto">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2><b>Restaurant Inventory</b></h2></div>
+                    <div class="col-sm-4">
+                    </div>
+                </div>
+            </div>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">Item</th>
-      <th scope="col">Description</th>
-      <th scope="col">Current Quantity</th>
-      <th scope="col">Desired Stock Amount</th>
+      <th>Name</th>
+      {{!-- <th scope="col">Description</th> --}}
+      <th>Current Quantity</th>
+      <th>Desired Stock Amount</th>
+      <th>Stock Number</th>
+      <th>Restautant ID</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -65,15 +78,29 @@
     <tr>
       <tr data-id="{{this.id}}"></tr>
       <td>{{this.name}}</td>
-      <td>{{this.description}}</td>
+      {{!-- <td>{{this.description}}</td> --}}
       <td>{{this.quantity}}</td> 
       <td>{{this.stockAmount}}</td>
+      <td>{{this.stockNumber}}</td>
+      <td>{{this.restaurantid}}</td>
       <td>
             <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+            <a class="delete" data-id="{{this.id}}" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
       </td>
     </tr>
     {{/each}}
+    
+    <tr>
+      <td><input type="text" class="form-control" name="name" id="name"></td>
+      {{!-- <td><input type="text" class="form-control" name="description" id="description"></td> --}}
+      <td><input type="text" class="form-control" name="quantity" id="quantity"></td>
+      <td><input type="text" class="form-control" name="stockAmount" id="stockAmount"></td>
+      <td><input type="text" class="form-control" name="stockNumber" id="stockNumber"></td>
+      <td><input type="text" class="form-control" name="restaurantid" id="restautantid"></td>
+    <td>
+      <a class="submit" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xe5ca;</i></a>
+    </td>
+</tr> 
   </tbody>
 </table>
 

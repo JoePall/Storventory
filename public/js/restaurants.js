@@ -86,6 +86,7 @@ $(document).ready(() => {
   $(document).on("click", ".delete", handleDeleteRestaurant);
 
   function deleteRestaurant(id) {
+    console.log("id = " + id);
     $.ajax({
       method: "DELETE",
       url: "/api/restaurant/" + id
@@ -96,6 +97,7 @@ $(document).ready(() => {
   }
 
   function handleDeleteRestaurant() {
+    console.log("id in handleDeleteRestaurant = " + $(this).attr("data-id"));
     deleteRestaurant($(this).attr("data-id"));
   }
 });

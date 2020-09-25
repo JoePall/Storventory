@@ -5,17 +5,21 @@ $(document).ready(() => {
   $(".submit").click(event => {
     event.preventDefault();
     const name = $("#name");
-    const description = $("#description");
+    // const description = $("#description");
     const quantity = $("#quantity");
     const stockAmount = $("#stockAmount");
-    if (!name || !description || !quantity || !stockAmount) {
+    const stockNumber = $("#stockNumber");
+    const restautantid = $("#restautantid");
+    if (!name || !quantity || !stockAmount || !stockNumber) {
       return;
     }
     $.post("/api/inventory", {
       name: name.val().trim(),
-      description: description.val().trim(),
+      // description: description.val().trim(),
       quantity: quantity.val().trim(),
-      stockAmount: stockAmount.val().trim()
+      stockAmount: stockAmount.val().trim(),
+      stockNumber: stockNumber.val().trim(),
+      restaurantid: restautantid.val().trim()
     })
       .then(() => {
         window.location.reload();
@@ -44,11 +48,21 @@ $(document).ready(() => {
       .toggle();
     $(".add-new").attr("disabled", "disabled");
   });
+
   // Delete row on delete button click
-  $(document).on("click", ".delete", function() {
-    $(this)
-      .parents("tr")
-      .remove();
-    $(".add-new").removeAttr("disabled");
-  });
+  $(document).on("click", ".delete", handleDeleteItem);
+
+  function deleteItem(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/inventory/" + id
+    }).then(() => {
+      console.log(".then");
+      window.location.reload();
+    });
+  }
+
+  function handleDeleteItem() {
+    deleteItem($(this).attr("data-id"));
+  }
 });
