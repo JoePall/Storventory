@@ -76,15 +76,16 @@
   <tbody>
     {{#each items}}
     <tr>
-      <tr data-id="{{this.id}}"></tr>
-      <td>{{this.name}}</td>
+      <td class="{{this.id}} id d-none" data-id="{{this.id}}"></td>
+      <td class="{{this.id}} name">{{this.name}}</td>
       {{!-- <td>{{this.description}}</td> --}}
-      <td>{{this.quantity}}</td> 
-      <td>{{this.stockAmount}}</td>
-      <td>{{this.stockNumber}}</td>
-      <td>{{this.restaurantid}}</td>
+      <td class="{{this.id}} quantity">{{this.quantity}}</td> 
+      <td class="{{this.id}} stockAmount">{{this.stockAmount}}</td>
+      <td class="{{this.id}} stockNumber">{{this.stockNumber}}</td>
+      <td class="{{this.id}} restaurantid">{{this.restaurantid}}</td>
       <td>
-            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            <a class="edit edit{{this.id}}" data-id="{{this.id}}" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+            <a class="edit-submit edit-submit{{this.id}}" data-id="{{this.id}}" title="Submit" data-toggle="tooltip"><i class="material-icons">&#xe5ca;</i></a>
             <a class="delete" data-id="{{this.id}}" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
       </td>
     </tr>

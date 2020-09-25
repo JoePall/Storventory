@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  $(".edit-submit").hide();
   // eslint-disable-next-line prettier/prettier
   $("[data-toggle=\"tooltip\"]").tooltip();
   // Append table with add inventory row on add new button click
@@ -30,23 +31,68 @@ $(document).ready(() => {
   });
   // Edit row on edit button click
   $(document).on("click", ".edit", function() {
+    const id = $(this).attr("data-id");
+    console.log(id);
+    $(".edit" + id).hide();
+    $(".edit-submit" + id).show();
     $(this)
       .parents("tr")
       .find("td:not(:last-child)")
       .each(function() {
         $(this).html(
           // eslint-disable-next-line prettier/prettier
-          "<input type=\"text\" class=\"form-control\" value=\"" +
+          "<input type=\"text\" class=\"form-control update "+ $(this).attr("class") +" \"  value=\"" +
             $(this).text() +
             // eslint-disable-next-line prettier/prettier
             "\">"
         );
       });
-    $(this)
-      .parents("tr")
-      .find(".add, .edit")
-      .toggle();
-    $(".add-new").attr("disabled", "disabled");
+  });
+
+  $(this)
+    .parents("tr")
+    .find("td:not(:last-child)")
+    .each(function() {
+      $(this).html(
+        // eslint-disable-next-line prettier/prettier
+        "<input type=\"text\" class=\"form-control\" value=\"" +
+          $(this).text() +
+        // eslint-disable-next-line prettier/prettier
+            "\">"
+      );
+    });
+  $(".edit-submit").click(function() {
+    console.log("edit");
+    const id = $(this).attr("data-id");
+    console.log(id);
+    console.log($(".id ." + id));
+    const record = {
+      id: id,
+      name: $(".name ." + id)
+        .val()
+        .trim(),
+      quantity: $(".quantity ." + id)
+        .val()
+        .trim(),
+      stockAmount: $(".stockAmount ." + id)
+        .val()
+        .trim(),
+      stockNumber: $(".stockNumber ." + id)
+        .val()
+        .trim(),
+      restaurantid: $(".restaurantid ." + id)
+        .val()
+        .trim()
+    };
+    console.log(record);
+    $.ajax({
+      method: "PUT",
+      url: "/api/inventory/",
+      body: record
+    }).then(() => {
+      console.log(".then");
+      window.location.reload();
+    });
   });
 
   // Delete row on delete button click
