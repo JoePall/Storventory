@@ -53,20 +53,20 @@ module.exports = function(app) {
   });
 
   // route to delete inventoryitem
-    app.delete("/api/inventory/:id", isAuthenticated, (req, res) => {
-      if (req.user) {
-        db.InventoryItem.destroy({
-          where: { id: req.params.id }
+  app.delete("/api/inventory/:id", isAuthenticated, (req, res) => {
+    if (req.user) {
+      db.InventoryItem.destroy({
+        where: { id: req.params.id }
+      })
+        .then(() => {
+          res.status(200);
+          res.send({ message: "inventoryItem deleted" });
         })
-          .then(() => {
-            res.status(200);
-            res.send({ message: "inventoryItem deleted" });
-          })
-          .catch(err => {
-            res.status(401).json(err);
-          });
-      } else {
-        res.render("login");
-      }
-    });
-  };
+        .catch(err => {
+          res.status(401).json(err);
+        });
+    } else {
+      res.render("login");
+    }
+  });
+};
