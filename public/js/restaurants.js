@@ -1,5 +1,9 @@
 $(document).ready(() => {
   console.log("init");
+  console.log(uuid);
+  console.log(session);
+
+  // const queryText = "";
 
   // eslint-disable-next-line prettier/prettier
   $("[data-toggle=\"tooltip\"]").tooltip();
