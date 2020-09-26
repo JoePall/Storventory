@@ -3,8 +3,10 @@ $(document).ready(() => {
   const session = uuid.v4();
 
   console.log("init");
+  console.log(uuid);
+  console.log(session);
 
-  const queryText = "";
+  // const queryText = "";
 
   // eslint-disable-next-line prettier/prettier
   $("[data-toggle=\"tooltip\"]").tooltip();
