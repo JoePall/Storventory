@@ -1,8 +1,10 @@
 $(document).ready(() => {
   const uuid = require("uuid");
-  // const session = uuid.v4();
+  const session = uuid.v4();
 
   console.log("init");
+  console.log(uuid);
+  console.log(session);
 
   // const queryText = "";
 
