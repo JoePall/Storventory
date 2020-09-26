@@ -1,17 +1,21 @@
 $(document).ready(() => {
-  const uuid = require("uuid");
-  const session = uuid.v4();
-
-  console.log("init");
-  console.log(uuid);
-  console.log(session);
-
+  let session = "";
   $("#location").on("input", () => {
-    const query = $("#location")
-      .val()
-      .trim();
-    $.get("/places/" + query + "&" + session).then(data => {
+    if (session === "") {
+      session = new Date().getTime();
+    }
+    const text = $("#location");
+
+    $.ajax({
+      method: "GET",
+      url: "/places",
+      body: {
+        text: text.val().trim(),
+        session: session
+      }
+    }).then(data => {
       console.log(data);
+      window.location.reload();
     });
   });
 

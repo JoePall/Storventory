@@ -57,19 +57,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/places/:text&session", isAuthenticated, (req, res) => {
-    const result = request(
-      "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" +
-        req.params.text +
-        "&key=" +
-        process.env.JAWSDB_URL +
-        "&sessiontoken=" +
-        req.params.session
-    );
-
-    res.json(result);
-  });
-
   // route to delete inventoryitem
   app.delete("/api/inventory/:id", isAuthenticated, (req, res) => {
     if (req.user) {
