@@ -1,0 +1,41 @@
+<!-- Item search bar -->
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline">
+  </form>
+
+<!-- Show item, description, quantity, and desired stock amount --> 
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper" style="width: auto">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2><b>Shopping list</b></h2></div>
+                    {{!-- <div class="col-sm-4">
+                    </div> --}}
+                </div>
+            </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: center;">Quantity Needed</th>
+      <th style="text-align: center;">Stock Number (UPC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each items}}
+    <tr>
+      <tr data-id="{{this.id}}"></tr>
+      <td>{{this.name}}</td>
+      <td style="text-align: center;">{{minus this.stockAmount this.quantity}}</td> 
+      <td style="text-align: center;">{{this.stockNumber}}</td>
+      {{!-- <td>
+            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+      </td> --}}
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+
+<script type="text/javascript" src="/js/shop.js"></script>
