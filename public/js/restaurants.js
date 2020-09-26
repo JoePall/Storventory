@@ -1,10 +1,5 @@
 $(document).ready(() => {
-  const uuid = require("uuid");
-  const session = uuid.v4();
-
   console.log("init");
-
-  const queryText = "";
 
   // eslint-disable-next-line prettier/prettier
   $("[data-toggle=\"tooltip\"]").tooltip();

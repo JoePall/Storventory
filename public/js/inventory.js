@@ -49,58 +49,58 @@ $(document).ready(() => {
             "\">"
         );
       });
-    });
-
-    $(this)
-      .parents("tr")
-      .find("td:not(:last-child)")
-      .each(function() {
-        $(this).html(
-          // eslint-disable-next-line prettier/prettier
-          "<input type=\"text\" class=\"form-control\" value=\"" +
-            $(this).text() +
-          // eslint-disable-next-line prettier/prettier
-              "\">"
-        );
-      });
-    $(".edit-submit").click(function() {
-      console.log("edit");
-      const id = $(this).attr("data-id");
-      console.log(id);
-      console.log($(".id ." + id));
-      const record = {
-        id: id,
-        name: $(".name ." + id)
-          .val()
-          .trim(),
-        quantity: $(".quantity ." + id)
-          .val()
-          .trim(),
-        stockAmount: $(".stockAmount ." + id)
-          .val()
-          .trim(),
-        stockNumber: $(".stockNumber ." + id)
-          .val()
-          .trim(),
-        restaurantid: $(".restaurantid ." + id)
-          .val()
-          .trim()
-      };
-      console.log(record);
-      $.ajax({
-        method: "PUT",
-        url: "/api/inventory/",
-        body: record
-      }).then(() => {
-        console.log(".then");
-        window.location.reload();
-      });
-  // Delete row on delete button click
-  $(document).on("click", ".delete", function() {
-    $(this)
-      .parents("tr")
-      .remove();
-    $(".add-new").removeAttr("disabled");
   });
-}
+
+  $(this)
+    .parents("tr")
+    .find("td:not(:last-child)")
+    .each(function() {
+      $(this).html(
+        // eslint-disable-next-line prettier/prettier
+        "<input type=\"text\" class=\"form-control\" value=\"" +
+          $(this).text() +
+          // eslint-disable-next-line prettier/prettier
+          "\">"
+      );
+    });
+  $(".edit-submit").click(function() {
+    console.log("edit");
+    const id = $(this).attr("data-id");
+    console.log(id);
+    console.log($(".id ." + id));
+    const record = {
+      id: id,
+      name: $(".name ." + id)
+        .val()
+        .trim(),
+      quantity: $(".quantity ." + id)
+        .val()
+        .trim(),
+      stockAmount: $(".stockAmount ." + id)
+        .val()
+        .trim(),
+      stockNumber: $(".stockNumber ." + id)
+        .val()
+        .trim(),
+      restaurantid: $(".restaurantid ." + id)
+        .val()
+        .trim()
+    };
+    console.log(record);
+    $.ajax({
+      method: "PUT",
+      url: "/api/inventory/",
+      body: record
+    }).then(() => {
+      console.log(".then");
+      window.location.reload();
+    });
+    // Delete row on delete button click
+    $(document).on("click", ".delete", function() {
+      $(this)
+        .parents("tr")
+        .remove();
+      $(".add-new").removeAttr("disabled");
+    });
+  });
 });
