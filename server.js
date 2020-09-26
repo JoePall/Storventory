@@ -8,6 +8,12 @@ const exphbs = require("express-handlebars");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
+// added for shopping list
+const helpers = require("handlebars-helpers");
+const math = helpers.math();
+
+console.log(math);
+
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -27,6 +33,7 @@ app.set("view engine", "handlebars");
 require("./controllers/loginController.js")(app);
 require("./controllers/restaurantsController.js")(app);
 require("./controllers/inventoryController.js")(app);
+require("./controllers/shopController.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: true }).then(() => {
