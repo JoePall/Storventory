@@ -6,6 +6,15 @@ $(document).ready(() => {
   console.log(uuid);
   console.log(session);
 
+  $("#location").on("input", () => {
+    const query = $("#location")
+      .val()
+      .trim();
+    $.get("/places/" + query + "&" + session).then(data => {
+      console.log(data);
+    });
+  });
+
   // const queryText = "";
 
   // eslint-disable-next-line prettier/prettier
