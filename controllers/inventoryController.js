@@ -1,5 +1,3 @@
-const { request } = require("chai");
-
 module.exports = function(app) {
   const isAuthenticated = require("../config/middleware/isAuthenticated");
   const db = require("../models");

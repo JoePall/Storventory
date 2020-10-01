@@ -30,10 +30,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "template" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./controllers/loginController.js")(app);
-require("./controllers/restaurantsController.js")(app);
-require("./controllers/inventoryController.js")(app);
-require("./controllers/shopController.js")(app);
+require("./controllers")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({ force: true }).then(() => {

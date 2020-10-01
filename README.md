@@ -2,6 +2,12 @@
 
 ## Description 
 The Storventory app a inventory management system for small restaurants. It is setup to support multiple restaurant owners with multiple restaurants each. There is a separate inventory per restaurant. And you are able to create an account and search and purchase the necessary products your restaurant or restaurants need.
+
+![Screenshot of Storventory (Shopping List Page on Mobile)](https://storventory.herokuapp.com/images/screenshot-1.png)
+![Screenshot of Storventory (Inventory Page on Mobile)](https://storventory.herokuapp.com/images/screenshot-2.png)
+![Screenshot of Storventory (Restaurants Page on Mobile)](https://storventory.herokuapp.com/images/screenshot-3.png)
+![Screenshot of Storventory (Restaurants Page on Desktop)](https://storventory.herokuapp.com/images/screenshot-4.png)
+
 ## Table of Contents
 
 * [Technologies](#Technologies)
