@@ -3,7 +3,6 @@
 const fs = require("fs");
 const path = require("path");
 const basename = path.basename(module.filename);
-const controllers = {};
 
 module.exports = function(app) {
   fs.readdirSync(__dirname)
@@ -13,8 +12,7 @@ module.exports = function(app) {
       );
     })
     .forEach(file => {
-      const fileName = file.slice(0, -3);
-      require("./" + fileName)(app);
+      require("./" + file)(app);
     });
 
   module.exports = app;
