@@ -52,9 +52,11 @@ $(document).ready(() => {
   });
   // Delete row on delete button click
   $(document).on("click", ".delete", function() {
-    $(this)
-      .parents("tr")
-      .remove();
-    $(".add-new").removeAttr("disabled");
+    $.ajax({
+      method: "DELETE",
+      url: "/api/inventory/" + $(this).attr("data-id")
+    }).then(() => {
+      window.location.reload();
+    });
   });
 });

@@ -71,4 +71,27 @@ module.exports = function(app) {
       res.render("login");
     }
   });
+
+  app.get("/places", isAuthenticated, (req, res) => {
+    console.log(req);
+    let key = "";
+    if (fs.existsSync(__dirname + "/../config/config.json")) {
+      key = require(__dirname + "/../config/config.json").development.placeskey;
+    } else if (process.env.GOOGLEPLACES_KEY) {
+      key = process.env.GOOGLEPLACES_KEY;
+    } else {
+      return;
+    }
+
+    const result = request(
+      "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" +
+        req.body.text +
+        "&key=" +
+        key +
+        "&sessiontoken=" +
+        req.body.session
+    );
+
+    res.json(result);
+  });
 };
